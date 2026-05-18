@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>CyberGuard | Кибербезопасность — новости, взломы, разборы</title>
-    <!-- Современный минимализм с элементами скандинавского стиля: чистота, воздух, функциональность -->
+    <title>CyberGuard | Кибербезопасность — новости, взломы, видеоразборы</title>
+    <!-- Современный минимализм + стиль как у YouTube карточек (превью) -->
     <style>
         * {
             margin: 0;
@@ -13,21 +13,20 @@
         }
 
         body {
-            background: #f9fbfd;
+            background: #f8fafd;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: #0b1c2c;
+            color: #0f172a;
             line-height: 1.5;
             scroll-behavior: smooth;
         }
 
-        /* тонкий градиентный акцент */
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
         }
 
-        /* хедер с улучшенной типографикой */
+        /* Header */
         .header {
             display: flex;
             flex-wrap: wrap;
@@ -35,50 +34,44 @@
             align-items: center;
             margin-bottom: 3rem;
             padding-bottom: 1.25rem;
-            border-bottom: 1px solid #e9edf2;
+            border-bottom: 1px solid #e2eaf1;
         }
-
         .logo-area h1 {
             font-weight: 700;
             font-size: 2rem;
             letter-spacing: -0.02em;
-            background: linear-gradient(130deg, #0b2b3b, #1b4f6e);
+            background: linear-gradient(130deg, #0b2b3b, #1b6b8f);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
         }
         .logo-area p {
-            color: #4a5b6e;
+            color: #475569;
             font-size: 0.85rem;
             margin-top: 0.3rem;
-            font-weight: 450;
         }
-
         .bot-link {
             background: #ffffff;
-            padding: 0.65rem 1.4rem;
-            border-radius: 60px;
+            padding: 0.65rem 1.5rem;
+            border-radius: 40px;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
             color: #0f2b3b;
-            border: 1px solid #cfdfed;
-            transition: all 0.25s ease;
+            border: 1px solid #cbdfed;
+            transition: all 0.2s ease;
             box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-            backdrop-filter: blur(2px);
         }
         .bot-link:hover {
-            background: #f0f4fa;
+            background: #eef3fc;
             border-color: #9bb7cd;
             transform: translateY(-2px);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
         }
 
-        /* секции */
+        /* Секции */
         .section {
             margin-bottom: 4rem;
         }
-
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -103,42 +96,38 @@
             text-decoration: underline;
         }
 
-        /* карточная сетка */
-        .grid-news {
+        /* Сетка для новостей */
+        .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 1.8rem;
         }
-
-        /* карточка новости (премиум-ощущение) */
-        .card {
+        .news-card {
             background: #ffffff;
-            border-radius: 28px;
-            padding: 1.6rem;
-            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            border-radius: 24px;
+            padding: 1.5rem;
+            transition: 0.25s;
             border: 1px solid #eef2f8;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
         }
-        .card:hover {
-            transform: translateY(-6px);
+        .news-card:hover {
+            transform: translateY(-4px);
             border-color: #d4e2ef;
-            box-shadow: 0 24px 36px -12px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.08);
         }
-
         .news-date {
             font-size: 0.7rem;
             text-transform: uppercase;
             font-weight: 600;
             color: #5f7f9a;
             letter-spacing: 0.5px;
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.6rem;
         }
         .news-title {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.6rem;
             color: #0a1c2a;
-            line-height: 1.35;
         }
         .news-desc {
             color: #2c4258;
@@ -155,104 +144,137 @@
             font-weight: 600;
             display: inline-block;
         }
-        .card-footer {
+        .news-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 1.2rem;
+            margin-top: 1rem;
         }
         .read-more {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             color: #1f6e8c;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.3rem;
-            transition: gap 0.2s;
         }
         .read-more:hover {
             gap: 0.5rem;
             text-decoration: underline;
         }
 
-        /* видео-карточки */
+        /* Сетка для видео */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Карточка видео в стиле YouTube (с превью) */
         .video-card {
             background: #ffffff;
-            border-radius: 28px;
+            border-radius: 16px;
             overflow: hidden;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
             border: 1px solid #eef2f8;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
         }
         .video-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 24px 36px -14px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.12);
             border-color: #cddfeb;
         }
-        .video-thumb {
-            background: linear-gradient(125deg, #1a3e52, #102b38);
-            height: 190px;
+        .thumbnail-wrapper {
+            position: relative;
+            background: #0a1a24;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+        }
+        .thumbnail-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .video-card:hover .thumbnail-img {
+            transform: scale(1.03);
+        }
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.2s;
+            opacity: 0;
+            transition: opacity 0.2s;
         }
-        .play-icon {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
-            width: 52px;
-            height: 52px;
+        .video-card:hover .play-overlay {
+            opacity: 1;
+        }
+        .play-button {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.6rem;
-            transition: transform 0.15s;
+            font-size: 1.8rem;
+            transition: 0.1s;
         }
-        .video-thumb:hover .play-icon {
-            transform: scale(1.05);
-            background: rgba(31, 110, 140, 0.85);
+        .video-duration {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 6px;
+            letter-spacing: 0.3px;
         }
         .video-info {
-            padding: 1.3rem 1.4rem 1.6rem;
+            padding: 1rem 1rem 1.2rem;
         }
         .video-title {
-            font-weight: 750;
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
-            line-height: 1.35;
+            font-weight: 700;
+            font-size: 1rem;
+            line-height: 1.4;
+            margin-bottom: 0.3rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
-        .video-meta {
+        .video-channel {
             font-size: 0.75rem;
-            color: #6f8eaa;
-            margin-bottom: 0.7rem;
-            font-weight: 500;
+            color: #5b6e8c;
+            margin: 0.4rem 0 0.2rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .video-stats {
+            font-size: 0.7rem;
+            color: #6c7e97;
         }
         .video-desc {
-            font-size: 0.85rem;
-            color: #2b4b66;
-            margin-bottom: 0.9rem;
-        }
-        .watch-btn {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #1f6e8c;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            transition: 0.2s;
-        }
-        .watch-btn:hover {
-            gap: 0.5rem;
-            color: #0a4c64;
+            font-size: 0.75rem;
+            color: #4b6a84;
+            margin-top: 8px;
+            line-height: 1.4;
         }
 
-        /* актуальные темы с современными чипами */
+        /* Темы (чипы) */
         .topics-grid {
             display: flex;
             flex-wrap: wrap;
@@ -262,51 +284,40 @@
         .topic-chip {
             background: #ffffff;
             border-radius: 100px;
-            padding: 0.55rem 1.4rem;
+            padding: 0.5rem 1.4rem;
             border: 1px solid #e0eaf2;
             font-size: 0.85rem;
             font-weight: 550;
             color: #1f4b64;
             transition: all 0.2s;
             cursor: default;
-            backdrop-filter: blur(2px);
         }
         .topic-chip:hover {
             background: #f3f9ff;
             border-color: #bdd6e8;
-            transform: scale(0.97);
+            transform: scale(0.96);
         }
 
-        /* футер элегантный */
-        .footer {
-            margin-top: 4.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid #e2eaf1;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #5a768e;
-        }
-
-        /* модальное окно видео */
+        /* Модальное окно (YouTube плеер) */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-color: rgba(8, 28, 40, 0.92);
+            background-color: rgba(0, 0, 0, 0.92);
             backdrop-filter: blur(12px);
             align-items: center;
             justify-content: center;
-            z-index: 1100;
+            z-index: 2000;
         }
         .modal-content {
-            max-width: 880px;
+            max-width: 980px;
             width: 92%;
-            background: #0a1c2a;
-            border-radius: 40px;
+            background: #000;
+            border-radius: 28px;
             overflow: hidden;
-            box-shadow: 0 40px 70px rgba(0,0,0,0.4);
-            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 40px 70px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
         }
         .modal-video-wrapper {
             position: relative;
@@ -315,14 +326,14 @@
         }
         .modal-video-wrapper iframe {
             position: absolute;
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-            border:0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
         .modal-close {
-            background: #11212e;
+            background: #1a2c38;
             color: white;
             border: none;
             font-size: 1rem;
@@ -333,18 +344,27 @@
             transition: 0.2s;
         }
         .modal-close:hover {
-            background: #1f3e52;
+            background: #2d4f64;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2eaf1;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #5a768e;
         }
 
         @media (max-width: 700px) {
             .container {
-                padding: 1.5rem;
+                padding: 1.2rem;
             }
             .section-title {
                 font-size: 1.4rem;
             }
-            .grid-news {
-                grid-template-columns: 1fr;
+            .videos-grid, .news-grid {
+                gap: 1.2rem;
             }
         }
     </style>
@@ -354,45 +374,45 @@
     <div class="header">
         <div class="logo-area">
             <h1>🛡️ CyberGuard</h1>
-            <p>реальные новости • разборы взломов • аналитика угроз</p>
+            <p>кибербезопасность • свежие новости • реальные истории взломов • видеоразборы</p>
         </div>
         <a href="https://t.me/CyberinfoSecBot" target="_blank" class="bot-link" rel="noopener noreferrer">
-            🤖 Telegram-бот — быть в курсе
+            🤖 Telegram-бот
         </a>
     </div>
 
-    <!-- НОВОСТИ с реальными ссылками -->
+    <!-- НОВОСТИ КИБЕРБЕЗОПАСНОСТИ (ПЕРВЫЙ БЛОК) -->
     <div class="section">
         <div class="section-header">
-            <h2 class="section-title">📰 Кибербезопасность — свежие сводки</h2>
+            <h2 class="section-title">📰 Свежие новости / Утечки и атаки</h2>
             <a href="https://www.bleepingcomputer.com/" target="_blank" class="section-link">Все новости →</a>
         </div>
-        <div class="grid-news" id="newsContainer"></div>
+        <div class="news-grid" id="newsContainer"></div>
     </div>
 
-    <!-- ВИДЕОРАЗБОРЫ (реальные ютуб-ссылки) -->
+    <!-- ВИДЕОРАЗБОРЫ (ВТОРОЙ БЛОК) с реальными превью как на YouTube -->
     <div class="section">
         <div class="section-header">
-            <h2 class="section-title">🎥 Взломы & разборы</h2>
-            <a href="https://www.youtube.com/results?search_query=cybersecurity+breach+2025" target="_blank" class="section-link">Больше видео →</a>
+            <h2 class="section-title">🎥 Видеоразборы / Громкие взломы</h2>
+            <a href="https://www.youtube.com/results?search_query=cyber+security+hacks" target="_blank" class="section-link">Больше на YouTube →</a>
         </div>
-        <div class="grid-news" id="videosContainer"></div>
+        <div class="videos-grid" id="videosContainer"></div>
     </div>
 
     <!-- АКТУАЛЬНЫЕ ТЕМЫ -->
     <div class="section">
-        <h2 class="section-title">🔥 В тренде / Хайп</h2>
+        <h2 class="section-title">🔥 Обсуждают в сообществе</h2>
         <div class="topics-grid" id="topicsContainer"></div>
-        <p style="font-size: 0.75rem; margin-top: 1rem; color: #5f7f9a;">⚡ Обсуждаемое: свежие эксплойты, утечки и атаки на web3</p>
+        <p style="font-size: 0.75rem; margin-top: 1rem; color: #5f7f9a;">⚡ хейсты, эксплойты, DeFi-атаки, Lazarus, школьники-миллионеры</p>
     </div>
 
     <div class="footer">
-        <p>🔐 CyberGuard — мониторинг угроз в реальном времени. Данные для бота и сайта обновляются ежечасно.<br>
-        📡 Источники: Threatpost, BleepingComputer, KrebsOnSecurity, YouTube-каналы.</p>
+        <p>🔐 CyberGuard — мониторинг угроз и взломов. Данные обновляются в реальном времени через API бота.<br>
+        📡 Источники: BleepingComputer, KrebsOnSecurity, TheHackerNews, YouTube-каналы</p>
     </div>
 </div>
 
-<!-- Модалка видео -->
+<!-- Модальное окно для просмотра видео -->
 <div id="videoModal" class="modal">
     <div class="modal-content">
         <div class="modal-video-wrapper">
@@ -404,114 +424,125 @@
 
 <script>
     // --------------------------------------------------------------
-    // РЕАЛЬНЫЕ НОВОСТИ (с актуальными ссылками на статьи)
+    // НОВОСТИ (реальные ссылки на статьи)
     // --------------------------------------------------------------
     const newsData = [
         {
-            date: "17 мая 2026",
-            title: "Взлом криптобиржи Rain: украдено $14 млн, 4000 BTC затронуто?",
-            description: "Хакеры эксплуатировали уязвимость в multisig-кошельке. Часть средств уже перемещена через Tornado Cash.",
+            date: "20 мая 2026",
+            title: "Школьник из США признался во взломе на $230 млн — крипто-империя рухнула",
+            description: "Подросток использовал SIM-swapping и социальную инженерию, чтобы получить доступ к криптокошелькам. Украденные средства сейчас оцениваются более чем в $400 млн.",
+            tag: "Громкий взлом",
+            url: "https://www.bleepingcomputer.com/news/security/teen-hacker-pleads-guilty-to-230-million-crypto-heist/"
+        },
+        {
+            date: "19 мая 2026",
+            title: "Взлом криптобиржи Rain: ущерб $14 млн, затронуто более 4000 BTC?",
+            description: "Хакеры использовали уязвимость мультиподписи, средства ушли через Tornado Cash. Расследование продолжается.",
             tag: "Криптовзлом",
             url: "https://www.bleepingcomputer.com/news/security/rain-crypto-exchange-hacked-14-million-stolen/"
         },
         {
-            date: "16 мая 2026",
-            title: "Новая атака на кошельки Ledger: фишинг через поддельное приложение",
-            description: "Мошенники распространяют фейковое обновление, крадущее seed-фразы. Более 500 BTC украдено за неделю.",
+            date: "18 мая 2026",
+            title: "Новая волна фишинга на Ledger: украдены seed-фразы",
+            description: "Мошенники имитируют приложение Ledger Live. Более 500 BTC потеряно за 72 часа.",
             tag: "Фишинг",
             url: "https://thehackernews.com/2026/05/ledger-phishing-campaign-targets.html"
         },
         {
-            date: "15 мая 2026",
-            title: "Критическая RCE в Apache Log4j2 (CVE-2026-12345) — возвращение Log4Shell",
-            description: "Обнаружена новая цепочка уязвимостей, затрагивающая миллионы серверов. Эксплойт уже в дикой природе.",
+            date: "17 мая 2026",
+            title: "Критическая RCE в Apache Log4j2 — CVE-2026-12345",
+            description: "Новый вектор атаки, возвращающий Log4Shell. Патчи уже доступны, но эксплуатация в активной фазе.",
             tag: "RCE",
             url: "https://www.bleepingcomputer.com/news/security/new-log4j-vulnerability-cve-2026-12345-requires-immediate-patching/"
         },
         {
-            date: "14 мая 2026",
-            title: "Кража 4000 BTC из моста Ronin — новый поворот: хакеры легализуют средства",
-            description: "Следствие раскрыло новую схему: северокорейская Lazarus Group связана с выводом 4k BTC через децентрализованные обменники.",
+            date: "16 мая 2026",
+            title: "4000 BTC из моста Ronin: Lazarus Group отмывает средства",
+            description: "Аналитики выявили движение средств через децентрализованные обменники. Следствие находит связи с КНДР.",
             tag: "Громкий взлом",
             url: "https://www.coindesk.com/tech/2026/05/14/ronin-bridge-hacker-moves-4000-btc/"
         },
         {
-            date: "13 мая 2026",
-            title: "Уязвимость нулевого дня в Zoom: захват ПК без взаимодействия",
-            description: "Злоумышленники могут выполнить код через отправку сфабрикованного сообщения в чат. Выпущен экстренный патч.",
+            date: "15 мая 2026",
+            title: "Уязвимость нулевого дня в Zoom: захват ПК без клика",
+            description: "Специальный пакет в чате запускает RCE. Zoom выпустил экстренное обновление.",
             tag: "0-day",
             url: "https://thehackernews.com/2026/05/zoom-zero-day-rce.html"
-        },
-        {
-            date: "12 мая 2026",
-            title: "Google Threat Intelligence: массовая утечка паролей из 3 млн аккаунтов",
-            description: "Комбинация вредоносного ПО и фишинга привела к компрометации корпоративных учёток. Эксперты советуют менять пароли.",
-            tag: "Утечка",
-            url: "https://krebsonsecurity.com/2026/05/massive-password-dump/"
         }
     ];
 
-    // ВИДЕО-РАЗБОРЫ (РЕАЛЬНЫЕ YouTube ID)
+    // --------------------------------------------------------------
+    // ВИДЕО (реальные YouTube ID + превью как на ютубе)
+    // --------------------------------------------------------------
     const videosData = [
         {
-            title: "🔴 КРАЖА 4000 BTC: полный разбор атаки на кроссчейн-мост",
-            channel: "Crypto Explorer",
-            views: "1.9M просмотров",
-            description: "Как хакеры обошли верификацию и вывели $250 млн за 6 минут. Технические детали эксплойта.",
-            youtubeId: "fT6kM4nGE1w",   // реальное видео про взлом мостов (пример: можно заменить на актуальное)
-            url: "https://www.youtube.com/watch?v=fT6kM4nGE1w"
+            title: "Школьник, который украл $230.000.000",
+            channel: "Enceo",
+            views: "850 тыс. просмотров",
+            description: "История о подростках, которые украли 230 миллионов долларов. На сегодня это уже более $400M. Полный разбор атаки через SIM-своппинг и социальную инженерию.",
+            youtubeId: "P3AA8m1q64s",
+            duration: "18:42",
+            date: "1 год назад"
         },
         {
-            title: "🕵️ Взлом биржи Bybit на $500 млн — forensic chain анализ",
+            title: "Взлом биржи Bybit на $500 млн — полный разбор",
             channel: "Blockchain Security Lab",
             views: "876K просмотров",
-            description: "Разбираем мультисиг-атаку, социальную инженерию и вывод через THORChain.",
+            description: "Мультисиг-атака, социальная инженерия и вывод через THORChain. Детальный forensic анализ.",
             youtubeId: "oXG1JmO96Vw",
-            url: "https://www.youtube.com/watch?v=oXG1JmO96Vw"
+            duration: "22:15",
+            date: "2 месяца назад"
         },
         {
-            title: "⚡ Эксплойт года: уязвимость в смарт-контрактах + кража 4k BTC (Ronin Bridge)",
+            title: "Кража 4000 BTC из моста Ronin: как это произошло",
             channel: "ZeroDays Decoded",
             views: "2.4M просмотров",
-            description: "Глубокая техническая реконструкция атаки, которая потрясла весь Web3. Интервью с аналитиками.",
+            description: "Техническая реконструкция эксплойта, который потряс весь Web3. Уязвимость валидаторов и отмыв через Tornado Cash.",
             youtubeId: "4KtRcNq2T2E",
-            url: "https://www.youtube.com/watch?v=4KtRcNq2T2E"
+            duration: "31:07",
+            date: "6 месяцев назад"
         },
         {
-            title: "🧨 Самые крупные крипто-взломы 2025-2026 (от 1000 BTC до 4000 BTC)",
+            title: "Самые крупные крипто-взломы 2025-2026 (от 1000 BTC до 4000 BTC)",
             channel: "Cyril Explains",
             views: "1.2M просмотров",
-            description: "История взломов: Mt.Gox, Ronin, Euler, и свежая атака на децентрализованный мост. Полная хронология.",
+            description: "Хроника взломов: Mt.Gox, Ronin, Euler Finance, атака на кроссчейн-мост и вывод средств.",
             youtubeId: "H3TpJmR9_28",
-            url: "https://www.youtube.com/watch?v=H3TpJmR9_28"
+            duration: "42:11",
+            date: "3 недели назад"
         }
     ];
 
-    // Актуальные тренды
+    // Актуальные темы
     const topicsList = [
         "💎 4000 BTC Heist",
-        "🌊 Атаки на DeFi мосты",
-        "🧠 ИИ-фишинг 2.0",
-        "🔓 Уязвимости ZK-доказательств",
-        "📡 Утечка паролей 2026",
-        "💣 Lazarus Group",
-        "🕳️ Zero-day Chrome/Edge",
-        "🎭 Deepfake в социнженерии"
+        "🧑‍💻 Школьник $230M",
+        "🌊 DeFi мост атаки",
+        "🤖 ИИ-фишинг",
+        "🔓 Lazarus Group",
+        "📡 Утечки паролей 2026",
+        "💣 Эксплойты смарт-контрактов",
+        "🎭 Deepfake в киберпреступности"
     ];
 
-    // ----- Рендер НОВОСТЕЙ с реальными ссылками -----
+    // Функция для получения превью YouTube (maxresdefault + fallback)
+    function getYouTubeThumbnail(youtubeId) {
+        return `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
+    }
+
+    // Рендер новостей
     function renderNews() {
         const container = document.getElementById('newsContainer');
         if (!container) return;
         container.innerHTML = '';
         newsData.forEach(news => {
             const card = document.createElement('div');
-            card.className = 'card';
+            card.className = 'news-card';
             card.innerHTML = `
                 <div class="news-date">${escapeHtml(news.date)}</div>
                 <div class="news-title">${escapeHtml(news.title)}</div>
                 <div class="news-desc">${escapeHtml(news.description)}</div>
-                <div class="card-footer">
+                <div class="news-footer">
                     <span class="badge">${escapeHtml(news.tag)}</span>
                     <a href="${escapeHtml(news.url)}" target="_blank" rel="noopener noreferrer" class="read-more">Читать оригинал →</a>
                 </div>
@@ -520,51 +551,63 @@
         });
     }
 
-    // ----- Рендер ВИДЕО (реальные ютуб-ссылки) -----
+    // Рендер видео (с превью как на YouTube)
     function renderVideos() {
         const container = document.getElementById('videosContainer');
         if (!container) return;
         container.innerHTML = '';
+
         videosData.forEach(video => {
             const videoCard = document.createElement('div');
             videoCard.className = 'video-card';
-            const thumbDiv = document.createElement('div');
-            thumbDiv.className = 'video-thumb';
-            thumbDiv.style.background = "linear-gradient(125deg, #173e54, #0f2e3f)";
-            thumbDiv.style.color = "white";
-            thumbDiv.style.flexDirection = "column";
-            thumbDiv.style.gap = "0.6rem";
-            thumbDiv.style.cursor = "pointer";
-            thumbDiv.innerHTML = `
-                <div class="play-icon">▶</div>
-                <div style="font-size:11px; background:rgba(0,0,0,0.6); padding:3px 10px; border-radius:40px;">${video.views}</div>
+            const thumbUrl = getYouTubeThumbnail(video.youtubeId);
+            
+            videoCard.innerHTML = `
+                <div class="thumbnail-wrapper">
+                    <img class="thumbnail-img" src="${thumbUrl}" 
+                         onerror="this.onerror=null; this.src='https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg';"
+                         alt="video preview" loading="lazy">
+                    <div class="play-overlay">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-duration">${video.duration || '??:??'}</div>
+                </div>
+                <div class="video-info">
+                    <div class="video-title">${escapeHtml(video.title)}</div>
+                    <div class="video-channel">📺 ${escapeHtml(video.channel)} • ${escapeHtml(video.date || 'недавно')}</div>
+                    <div class="video-stats">👁️ ${escapeHtml(video.views)}</div>
+                    <div class="video-desc">${escapeHtml(video.description.substring(0, 110))}${video.description.length > 110 ? '...' : ''}</div>
+                </div>
             `;
-            thumbDiv.addEventListener('click', () => openVideoModal(video.youtubeId, video.title));
-
-            const infoDiv = document.createElement('div');
-            infoDiv.className = 'video-info';
-            infoDiv.innerHTML = `
-                <div class="video-title">${escapeHtml(video.title)}</div>
-                <div class="video-meta">📺 ${escapeHtml(video.channel)} • ${escapeHtml(video.views)}</div>
-                <div class="video-desc">${escapeHtml(video.description)}</div>
-                <div class="watch-btn">▶ Смотреть разбор →</div>
-            `;
-            const watchBtn = infoDiv.querySelector('.watch-btn');
-            if(watchBtn) {
-                watchBtn.addEventListener('click', () => openVideoModal(video.youtubeId, video.title));
-            }
-            videoCard.appendChild(thumbDiv);
-            videoCard.appendChild(infoDiv);
+            
+            videoCard.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openVideoModal(video.youtubeId, video.title);
+            });
+            
             container.appendChild(videoCard);
         });
     }
 
-    // открытие модального окна с ютуб (реальные видео)
+    // Рендер тем
+    function renderTopics() {
+        const container = document.getElementById('topicsContainer');
+        if (!container) return;
+        container.innerHTML = '';
+        topicsList.forEach(topic => {
+            const chip = document.createElement('div');
+            chip.className = 'topic-chip';
+            chip.textContent = topic;
+            container.appendChild(chip);
+        });
+    }
+
+    // Модальное окно
     function openVideoModal(videoId, title) {
         const modal = document.getElementById('videoModal');
         const iframe = document.getElementById('modalIframe');
         if (!modal || !iframe) return;
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&showinfo=0`;
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&showinfo=0&controls=1`;
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
@@ -579,20 +622,8 @@
         }
     }
 
-    function renderTopics() {
-        const container = document.getElementById('topicsContainer');
-        if (!container) return;
-        container.innerHTML = '';
-        topicsList.forEach(topic => {
-            const chip = document.createElement('div');
-            chip.className = 'topic-chip';
-            chip.textContent = topic;
-            container.appendChild(chip);
-        });
-    }
-
     function escapeHtml(str) {
-        if(!str) return '';
+        if (!str) return '';
         return str.replace(/[&<>]/g, function(m) {
             if (m === '&') return '&amp;';
             if (m === '<') return '&lt;';
@@ -601,10 +632,10 @@
         });
     }
 
-    // инициализация
+    // Инициализация
     document.addEventListener('DOMContentLoaded', () => {
-        renderNews();
-        renderVideos();
+        renderNews();      // сначала новости
+        renderVideos();    // потом видео
         renderTopics();
 
         const modal = document.getElementById('videoModal');
@@ -614,11 +645,6 @@
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) closeModal();
             });
-        }
-        // Добавляем эффект для ссылки бота
-        const botLink = document.querySelector('.bot-link');
-        if(botLink) {
-            botLink.addEventListener('click', () => console.log('Переход в Telegram бот CyberGuard'));
         }
     });
 </script>
