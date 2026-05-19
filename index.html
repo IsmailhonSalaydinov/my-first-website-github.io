@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>CyberGuard | Кибербезопасность — новости, взломы, видеоразборы</title>
-    <!-- Современный минимализм + стиль как у YouTube карточек (превью) -->
     <style>
         * {
             margin: 0;
@@ -26,13 +25,12 @@
             padding: 2rem 1.5rem;
         }
 
-        /* Header */
         .header {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             padding-bottom: 1.25rem;
             border-bottom: 1px solid #e2eaf1;
         }
@@ -68,11 +66,248 @@
             transform: translateY(-2px);
         }
 
-        /* Секции */
+        .main-info {
+            margin-bottom: 2.5rem;
+        }
+        .main-info-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: #0b2b3b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 5px solid #1f6e8c;
+            padding-left: 1rem;
+        }
+        .info-section {
+            background: #ffffff;
+            border-radius: 28px;
+            margin-bottom: 2rem;
+            border: 1px solid #e5edf5;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+        }
+        .section-header {
+            background: #f5f9ff;
+            padding: 1rem 1.8rem;
+            border-bottom: 1px solid #e5edf5;
+        }
+        .section-header h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #1f6e8c;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-content {
+            padding: 1.5rem 1.8rem;
+        }
+        .section-content p {
+            font-size: 0.95rem;
+            color: #2c4a6e;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        /* КОМПАКТНЫЕ СЕТОЧНЫЕ БЛОКИ ДЛЯ КИБЕРБЕЗОПАСНОСТИ */
+        .compact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .compact-card {
+            background: #fafcff;
+            border-radius: 18px;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #eef3fa;
+            transition: 0.2s;
+        }
+        .compact-card:hover {
+            border-color: #cde0ec;
+            background: #ffffff;
+        }
+        .compact-card h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #1f6e8c;
+            margin-bottom: 0.4rem;
+        }
+        .compact-card p {
+            font-size: 0.8rem;
+            color: #2c4a6e;
+            margin-bottom: 0;
+            line-height: 1.4;
+        }
+        .badge-list-compact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.4rem;
+        }
+        .badge-sm {
+            background: #eaf5ff;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #1a6b8c;
+        }
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        /* СТАРЫЙ КРАСИВЫЙ БЛОК ДЛЯ КИБЕРАТАК */
+        .attack-table {
+            width: 100%;
+            font-size: 0.85rem;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .attack-table th, .attack-table td {
+            border: 1px solid #e2ecf5;
+            padding: 0.7rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        .attack-table th {
+            background: #eaf5ff;
+            color: #1f6e8c;
+            font-weight: 600;
+        }
+        .emergency-box {
+            background: #fef7f0;
+            border-radius: 20px;
+            padding: 1rem 1.3rem;
+            margin-top: 1rem;
+            border-left: 4px solid #e67e22;
+        }
+        .emergency-box p {
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+        .fact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0;
+        }
+        .fact-list li {
+            font-size: 0.85rem;
+            color: #2c4a6e;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .fact-list li:before {
+            content: "•";
+            color: #1f6e8c;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        /* РАЗДЕЛ ХАКЕРЫ — ТОЧНО КАК НА СКРИНШОТЕ */
+        .hacker-section {
+            background: #ffffff;
+            border-radius: 28px;
+            margin-bottom: 2rem;
+            border: 1px solid #e5edf5;
+            overflow: hidden;
+        }
+        .hacker-header {
+            background: #f5f9ff;
+            padding: 1rem 1.8rem;
+            border-bottom: 1px solid #e5edf5;
+        }
+        .hacker-header h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #1f6e8c;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hacker-content {
+            padding: 1.5rem 1.8rem;
+        }
+        .hacker-content p {
+            font-size: 0.95rem;
+            color: #2c4a6e;
+            line-height: 1.55;
+            margin-bottom: 1rem;
+        }
+        .hacker-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .hacker-type-item {
+            background: #fafcff;
+            border-radius: 18px;
+            padding: 0.8rem 1.2rem;
+            border: 1px solid #eef3fa;
+        }
+        .hacker-type-item strong {
+            color: #1f6e8c;
+            font-weight: 700;
+        }
+        .hacker-group-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 0.5rem 0 1rem;
+        }
+        .hacker-group-badge {
+            background: #eaf5ff;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #1a6b8c;
+        }
+        .green-emergency-box {
+            background: #f0f9f0;
+            border-radius: 20px;
+            padding: 1rem 1.3rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2e7d32;
+        } 
+        .green-emergency-box h4 {
+            color: #2e7d32;
+            margin-bottom: 0.8rem;
+        }
+        .rules-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 0.6rem;
+            margin: 1rem 0;
+        }
+        .rule-item {
+            background: #fafcff;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            color: #2c4a6e;
+            border: 1px solid #eef3fa;
+        }
+        .rule-item:before {
+            content: "✅ ";
+            color: #1f6e8c;
+        }
+
         .section {
             margin-bottom: 4rem;
         }
-        .section-header {
+        .section-header-news {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
@@ -96,7 +331,6 @@
             text-decoration: underline;
         }
 
-        /* Сетка для новостей */
         .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -164,22 +398,22 @@
             text-decoration: underline;
         }
 
-        /* Сетка для видео */
         .videos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
             gap: 2rem;
         }
 
-        /* Карточка видео в стиле YouTube (с превью) */
         .video-card {
             background: #ffffff;
-            border-radius: 16px;
+            border-radius: 24px;
             overflow: hidden;
             transition: all 0.25s ease;
             cursor: pointer;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
             border: 1px solid #eef2f8;
+            display: flex;
+            flex-direction: column;
         }
         .video-card:hover {
             transform: translateY(-5px);
@@ -199,7 +433,7 @@
             transition: transform 0.3s ease;
         }
         .video-card:hover .thumbnail-img {
-            transform: scale(1.03);
+            transform: scale(1.02);
         }
         .play-overlay {
             position: absolute;
@@ -228,7 +462,6 @@
             justify-content: center;
             color: white;
             font-size: 1.8rem;
-            transition: 0.1s;
         }
         .video-duration {
             position: absolute;
@@ -243,7 +476,8 @@
             letter-spacing: 0.3px;
         }
         .video-info {
-            padding: 1rem 1rem 1.2rem;
+            padding: 1rem 1rem 0.8rem;
+            flex: 1;
         }
         .video-title {
             font-weight: 700;
@@ -273,8 +507,89 @@
             margin-top: 8px;
             line-height: 1.4;
         }
+        .episodes-chip {
+            display: inline-block;
+            background: #f0f4fa;
+            border-radius: 20px;
+            padding: 0.2rem 0.7rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #1f6e8c;
+            margin-top: 8px;
+        }
 
-        /* Темы (чипы) */
+        .facts-box {
+            background: #f5f7fb;
+            border-radius: 14px;
+            padding: 0.6rem 0.8rem;
+            margin: 0.6rem 0 0.5rem;
+            border-left: 3px solid #e67e22;
+        }
+        .facts-title {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #e67e22;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .facts-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .facts-list li {
+            font-size: 0.7rem;
+            color: #2c4a6e;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .facts-list li:before {
+            content: "⚠️";
+            font-size: 0.65rem;
+        }
+
+        .security-box {
+            background: #eef3fc;
+            border-radius: 14px;
+            padding: 0.6rem 0.8rem;
+            margin-top: 0.5rem;
+            border-left: 3px solid #1f6e8c;
+        }
+        .security-title {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #1f6e8c;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .security-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .security-list li {
+            font-size: 0.7rem;
+            color: #1e4a6b;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .security-list li:before {
+            content: "🛡️";
+            font-size: 0.65rem;
+        }
+
         .topics-grid {
             display: flex;
             flex-wrap: wrap;
@@ -298,7 +613,6 @@
             transform: scale(0.96);
         }
 
-        /* Модальное окно (YouTube плеер) */
         .modal {
             display: none;
             position: fixed;
@@ -366,6 +680,18 @@
             .videos-grid, .news-grid {
                 gap: 1.2rem;
             }
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-content {
+                padding: 1rem;
+            }
+            .section-header {
+                padding: 0.8rem 1rem;
+            }
+            .attack-table {
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
@@ -381,25 +707,182 @@
         </a>
     </div>
 
-    <!-- НОВОСТИ КИБЕРБЕЗОПАСНОСТИ (ПЕРВЫЙ БЛОК) -->
+    <!-- ТРИ РАЗДЕЛА -->
+    <div class="main-info">
+        <div class="main-info-title">
+            <span>🛡️</span> Всё о кибербезопасности
+        </div>
+
+        <!-- РАЗДЕЛ 1: КИБЕРБЕЗОПАСНОСТЬ -->
+        <div class="info-section">
+            <div class="section-header">
+                <h2>🔒 Кибербезопасность</h2>
+            </div>
+            <div class="section-content">
+                <p><strong>Кибербезопасность</strong>(ее иногда называют компьютерной безопасностью) – это совокупность методов и практик защиты от атак злоумышленников для компьютеров, серверов, мобильных устройств, электронных систем, сетей и данных. Кибербезопасность находит применение в самых разных областях, от бизнес-сферы до мобильных технологий. В этом направлении можно выделить несколько основных категорий.</p>
+                
+                <div class="compact-grid">
+                    <div class="compact-card">
+                        <h4>📡 Безопасность сетей</h4>
+                        <p>Защита компьютерных сетей от целевых атак и вредоносных программ</p>
+                    </div>
+                    <div class="compact-card">
+                        <h4>📱 Безопасность приложений</h4>
+                        <p>Защита от угроз, скрытых в программах, на стадии разработки</p>
+                    </div>
+                    <div class="compact-card">
+                        <h4>🔐 Безопасность информации</h4>
+                        <p>Обеспечение целостности и приватности данных при хранении и передаче</p>
+                    </div>
+                    <div class="compact-card">
+                        <h4>⚙️ Операционная безопасность</h4>
+                        <p>Управление разрешениями доступа к сети и правилами обработки данных</p>
+                    </div>
+                    <div class="compact-card">
+                        <h4>🔄 Аварийное восстановление</h4>
+                        <p>Реагирование на инциденты и восстановление рабочих процессов</p>
+                    </div>
+                    <div class="compact-card">
+                        <h4>🎓 Повышение осведомлённости</h4>
+                        <p>Обучение пользователей для снижения человеческого фактора</p>
+                    </div>
+                </div>
+
+                <div class="two-col-grid">
+                    <div class="compact-card">
+                        <h4>🛡️ Виды защиты информации</h4>
+                        <div class="badge-list-compact">
+                            <span class="badge-sm">Криптография</span>
+                            <span class="badge-sm">Разграничение доступа</span>
+                            <span class="badge-sm">IDS/IPS</span>
+                            <span class="badge-sm">Firewall</span>
+                            <span class="badge-sm">Антивирус</span>
+                            <span class="badge-sm">Защита от DDoS</span>
+                            <span class="badge-sm">DLP</span>
+                            <span class="badge-sm">Контроль физического доступа</span>
+                        </div>
+                        <p style="font-size:0.7rem; margin-top:0.5rem; color:#7a8ca0;">Источник: УрокЦифры.рф</p>
+                    </div>
+                    <div class="compact-card">
+                        <h4>⚖️ Способы обеспечения ИБ</h4>
+                        <p><strong>Правовые меры</strong> — законодательство, нормативные акты<br>
+                        <strong>Организационные меры</strong> — внутренние документы, регламенты<br>
+                        <strong>Техническая защита</strong> — ТЗКИ, средства защиты</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- РАЗДЕЛ 2: КИБЕРАТАКИ (НЕ ТРОГАЛИ) -->
+        <div class="info-section">
+            <div class="section-header">
+                <h2>💥 Кибератаки</h2>
+            </div>
+            <div class="section-content">
+                <p><strong>Кибератака</strong> — это целенаправленное действие злоумышленников с целью нарушения работы IT-систем, кражи данных, получения выкупа или разрушения инфраструктуры. По данным исследования DOAJ, ежегодно количество атак увеличивается в среднем на 20%.</p>
+                
+                <h4 style="color: #1f6e8c; margin: 1rem 0 0.5rem;">🎯 Классификация кибератак по целям</h4>
+                <ul class="fact-list">
+                    <li><strong>Киберпреступление</strong> — действия с целью атаковать систему для извлечения финансовой выгоды</li>
+                    <li><strong>Кибершпионаж</strong> — действия, нацеленные на сбор информации политического или коммерческого характера</li>
+                    <li><strong>Кибертерроризм</strong> — действия, направленные на дестабилизацию систем с целью вызвать страх или панику</li>
+                </ul>
+
+                <table class="attack-table">
+                    <thead>
+                        <tr><th>Тип атаки</th><th>Описание</th><th>Методы защиты</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Фишинг / Spear-phishing</strong></td><td>Кража паролей через поддельные сайты и письма</td><td>2FA, обучение пользователей, антиспам-фильтры</td></tr>
+                        <tr><td><strong>Вирусы и черви (Worm)</strong></td><td>ВПО, которое внедряется в файлы и распространяется автономно</td><td>Антивирусы, обновления ОС</td></tr>
+                        <tr><td><strong>Вымогатели (Ransomware)</strong></td><td>Блокировка доступа к данным с требованием выкупа</td><td>Регулярные бэкапы, ограничение прав доступа</td></tr>
+                        <tr><td><strong>DDoS-атаки</strong></td><td>Перегрузка ресурсов с помощью ботнет-сетей, остановка сервисов</td><td>Анти-DDoS сервисы, мониторинг трафика</td></tr>
+                        <tr><td><strong>MitM (человек посередине)</strong></td><td>Перехват и подмена трафика между пользователем и сервером</td><td>Шифрование (HTTPS, VPN), сертификаты</td></tr>
+                        <tr><td><strong>Атаки на уязвимости (Zero-day)</strong></td><td>Эксплуатация неизвестных или неисправленных уязвимостей</td><td>Регулярные обновления, IDS/IPS системы</td></tr>
+                        <tr><td><strong>Атаки на физическую инфраструктуру</strong></td><td>Взлом систем управления зданиями, промышленными объектами (КИИ)</td><td>Стандарты ФСТЭК, физическая безопасность</td></tr>
+                    </tbody>
+                </table>
+
+                <h4 style="color: #1f6e8c; margin: 1rem 0 0.5rem;">🌍 Реальные примеры громких атак</h4>
+                <ul class="fact-list">
+                    <li><strong>WannaCry (2017)</strong> — атака-вымогатель, затронувшая 150 стран, ущерб $4 млрд</li>
+                    <li><strong>SolarWinds (2020)</strong> — атака через цепочку поставок, затронуты 18 000 клиентов, включая правительства США</li>
+                    <li><strong>Equifax (2017)</strong> — утечка данных 147 млн человек</li>
+                    <li><strong>Атака на Ronin Bridge (2022)</strong> — кража $625 млн в криптовалюте группировкой Lazarus</li>
+                </ul>
+
+                <div class="emergency-box">
+                    <h4>🚨 Что делать при кибератаке (пошаговая инструкция)</h4>
+                    <p><strong>1. Отключите устройство от интернета</strong> — это остановит удалённое управление.<br>
+                    <strong>2. Не платите выкуп</strong> — по данным ФБР, это не гарантирует возврат данных и финансирует преступность.<br>
+                    <strong>3. Смените пароли</strong> на всех аккаунтах, начиная с почты и банков.<br>
+                    <strong>4. Запустите антивирусную проверку</strong> (Kaspersky, Malwarebytes, Dr.Web).<br>
+                    <strong>5. Обратитесь в CERT</strong> (в России — CERT-GIB, в США — CISA).<br>
+                    <strong>6. Восстанавливайте данные из бэкапов</strong> (если они есть).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- РАЗДЕЛ 3: ХАКЕРЫ (ТОЧНО КАК НА СКРИНШОТЕ) -->
+        <div class="hacker-section">
+            <div class="hacker-header">
+                <h2>👤 Хакеры</h2>
+            </div>
+            <div class="hacker-content">
+                <p><strong>Хакеры</strong> — это специалисты в области информационных технологий, которые обладают глубокими знаниями в работе компьютерных систем, сетей и программного обеспечения.</p>
+                
+                <h4 style="color: #1f6e8c; margin: 1rem 0 0.8rem;">Типы хакеров</h4>
+                <div class="hacker-types">
+                    <div class="hacker-type-item"><strong>Белые хакеры (White Hat)</strong><br>— этичные хакеры, работающие легально. Тестируют системы на проникновение, участвуют в Bug Bounty.</div>
+                    <div class="hacker-type-item"><strong>Чёрные хакеры (Black Hat)</strong><br>— киберпреступники, взламывающие системы ради выгоды: кража денег, данных, шантаж.</div>
+                    <div class="hacker-type-item"><strong>Серые хакеры (Grey Hat)</strong><br>— действуют без злого умысла, но и без разрешения. Могут взломать систему, чтобы сообщить об уязвимости.</div>
+                    <div class="hacker-type-item"><strong>Красные хакеры (Red Hat)</strong><br>— «Робин Гуды» кибербезопасности, активно атакуют чёрных хакеров, чтобы остановить их.</div>
+                    <div class="hacker-type-item"><strong>Синие хакеры (Blue Hat)</strong><br>— работают внутри организаций, тестируют защиту по заданию руководства.</div>
+                </div>
+
+                <h4 style="color: #1f6e8c; margin: 1rem 0 0.8rem;">Известные хакерские группировки</h4>
+                <div class="hacker-group-list">
+                    <span class="hacker-group-badge">Lazarus (КНДР) — $1.5 млрд в крипте</span>
+                    <span class="hacker-group-badge">Evil Corp (Максим Якубец) — Dridex, $100 млн</span>
+                    <span class="hacker-group-badge">ShinyHunters — взлом Gucci, Balenciaga, Canvas</span>
+                    <span class="hacker-group-badge">APT-группы — кибершпионаж</span>
+                </div>
+            <div class="green-emergency-box">
+                <h4 style="color: #1f6e8c; margin: 1rem 0 0.8rem;">Как защититься от хакеров — 10 главных правил</h4>
+                <div class="rules-list">
+                    <div class="rule-item">Двухфакторная аутентификация (2FA)</div>
+                    <div class="rule-item">Менеджер паролей</div>
+                    <div class="rule-item">Регулярно обновляйте всё</div>
+                    <div class="rule-item">Не переходите по ссылкам из писем</div>
+                    <div class="rule-item">Не скачивайте пиратский софт</div>
+                    <div class="rule-item">Используйте антивирус + фаервол</div>
+                    <div class="rule-item">Холодные кошельки для крипты</div>
+                    <div class="rule-item">Регулярные бэкапы</div>
+                    <div class="rule-item">Будьте скептичны</div>
+                    <div class="rule-item">Проверяйте активные сессии</div>
+                </div>
+            </div>
+                <p style="font-size: 0.8rem; margin-top: 1rem; color: #4b6a84;">📌 Помните: ваша безопасность в интернете на 90% зависит от вашей внимательности. Хакеры чаще взламывают не компьютеры, а людей — через обман и спешку.</p>
+            </div>
+        </div>
+    </div>
+
     <div class="section">
-        <div class="section-header">
+        <div class="section-header-news">
             <h2 class="section-title">📰 Свежие новости / Утечки и атаки</h2>
             <a href="https://www.bleepingcomputer.com/" target="_blank" class="section-link">Все новости →</a>
         </div>
         <div class="news-grid" id="newsContainer"></div>
     </div>
 
-    <!-- ВИДЕОРАЗБОРЫ (ВТОРОЙ БЛОК) с реальными превью как на YouTube -->
     <div class="section">
-        <div class="section-header">
+        <div class="section-header-news">
             <h2 class="section-title">🎥 Видеоразборы / Громкие взломы</h2>
             <a href="https://www.youtube.com/results?search_query=cyber+security+hacks" target="_blank" class="section-link">Больше на YouTube →</a>
         </div>
-        <div class="videos-grid" id="videosContainer"></div>
+        <div class="videos-grid" id="unifiedVideosContainer"></div>
     </div>
 
-    <!-- АКТУАЛЬНЫЕ ТЕМЫ -->
     <div class="section">
         <h2 class="section-title">🔥 Обсуждают в сообществе</h2>
         <div class="topics-grid" id="topicsContainer"></div>
@@ -408,11 +891,10 @@
 
     <div class="footer">
         <p>🔐 CyberGuard — мониторинг угроз и взломов. Данные обновляются в реальном времени через API бота.<br>
-        📡 Источники: BleepingComputer, KrebsOnSecurity, TheHackerNews, YouTube-каналы</p>
+        📡 Источники: BleepingComputer, Коммерсантъ, Habr, BBC, Kaspersky, DOAJ</p>
     </div>
 </div>
 
-<!-- Модальное окно для просмотра видео -->
 <div id="videoModal" class="modal">
     <div class="modal-content">
         <div class="modal-video-wrapper">
@@ -423,114 +905,159 @@
 </div>
 
 <script>
-    // --------------------------------------------------------------
-    // НОВОСТИ (реальные ссылки на статьи)
-    // --------------------------------------------------------------
+    // НОВОСТИ
     const newsData = [
         {
-            date: "20 мая 2026",
-            title: "Школьник из США признался во взломе на $230 млн — крипто-империя рухнула",
-            description: "Подросток использовал SIM-swapping и социальную инженерию, чтобы получить доступ к криптокошелькам. Украденные средства сейчас оцениваются более чем в $400 млн.",
-            tag: "Громкий взлом",
-            url: "https://www.bleepingcomputer.com/news/security/teen-hacker-pleads-guilty-to-230-million-crypto-heist/"
+            date: "18 мая 2026",
+            title: "Grafana утверждает, что украденный токен GitHub позволил хакерам украсть кодовую базу",
+            description: "Grafana Labs сообщила, что хакеры скачали исходный код после взлома среды GitHub с помощью украденного токена доступа. Группировка CoinbaseCartel взяла на себя атаку.",
+            tag: "Утечка кода",
+            url: "https://www.bleepingcomputer.com/news/security/grafana-says-stolen-github-token-let-hackers-steal-codebase/",
+            source: "BleepingComputer"
+        },
+        {
+            date: "8 мая 2026",
+            title: "Хакерская атака на онлайн-платформу Canvas затронула 9 тыс. школ по всему миру",
+            description: "Компания Instructure (платформа Canvas) подверглась атаке хакеров из группировки ShinyHunters. Более 30 млн пользователей не могли получить доступ к сервису.",
+            tag: "Кибератака",
+            url: "https://www.kommersant.ru/doc/8652197",
+            source: "Коммерсантъ"
+        },
+        {
+            date: "13 мая 2026",
+            title: "В Баку приговорили еще двух задержанных летом прошлого года россиян",
+            description: "Суд в Баку приговорил россиян Игоря Заболоцких и Ильнура Валитова к трем годам заключения за легализацию 98 тыс. манатов (около 4,2 млн руб.), полученных путем киберпреступности.",
+            tag: "Киберпреступность",
+            url: "https://www.kommersant.ru/doc/8655021",
+            source: "Коммерсантъ"
         },
         {
             date: "19 мая 2026",
-            title: "Взлом криптобиржи Rain: ущерб $14 млн, затронуто более 4000 BTC?",
-            description: "Хакеры использовали уязвимость мультиподписи, средства ушли через Tornado Cash. Расследование продолжается.",
-            tag: "Криптовзлом",
-            url: "https://www.bleepingcomputer.com/news/security/rain-crypto-exchange-hacked-14-million-stolen/"
-        },
-        {
-            date: "18 мая 2026",
-            title: "Новая волна фишинга на Ledger: украдены seed-фразы",
-            description: "Мошенники имитируют приложение Ledger Live. Более 500 BTC потеряно за 72 часа.",
-            tag: "Фишинг",
-            url: "https://thehackernews.com/2026/05/ledger-phishing-campaign-targets.html"
-        },
-        {
-            date: "17 мая 2026",
-            title: "Критическая RCE в Apache Log4j2 — CVE-2026-12345",
-            description: "Новый вектор атаки, возвращающий Log4Shell. Патчи уже доступны, но эксплуатация в активной фазе.",
-            tag: "RCE",
-            url: "https://www.bleepingcomputer.com/news/security/new-log4j-vulnerability-cve-2026-12345-requires-immediate-patching/"
-        },
-        {
-            date: "16 мая 2026",
-            title: "4000 BTC из моста Ronin: Lazarus Group отмывает средства",
-            description: "Аналитики выявили движение средств через децентрализованные обменники. Следствие находит связи с КНДР.",
-            tag: "Громкий взлом",
-            url: "https://www.coindesk.com/tech/2026/05/14/ronin-bridge-hacker-moves-4000-btc/"
-        },
-        {
-            date: "15 мая 2026",
-            title: "Уязвимость нулевого дня в Zoom: захват ПК без клика",
-            description: "Специальный пакет в чате запускает RCE. Zoom выпустил экстренное обновление.",
-            tag: "0-day",
-            url: "https://thehackernews.com/2026/05/zoom-zero-day-rce.html"
+            title: "В «Аэрофлоте» раскрыли меры усиления киберзащиты после хакерской атаки в 2025 году",
+            description: "Компания усилила центр операционной безопасности, привлекла партнёров BI.ZONE и «Бастион», использует EDR-решения.",
+            tag: "ИБ",
+            url: "https://habr.com/ru/news/1036664/",
+            source: "Habr"
         }
     ];
 
-    // --------------------------------------------------------------
-    // ВИДЕО (реальные YouTube ID + превью как на ютубе)
-    // --------------------------------------------------------------
-    const videosData = [
+    // ВИДЕО
+    const unifiedVideos = [
+        {
+            title: "УКРАСТЬ $1,500,000,000? Как северокорейские хакеры провернули крупнейшее...",
+            channel: "BBC News - Русская служба",
+            views: "127 тыс. просмотров",
+            description: "Как северокорейские хакеры организовали крупнейшую кражу в истории криптовалют. Расследование BBC.",
+            youtubeId: "ct2p-y2t02E",
+            duration: "6:05",
+            date: "1 год назад",
+            facts: ["Крупнейшая кража криптовалюты", "Северокорейская группировка Lazarus", "Более $1.5 млрд ущерба"],
+            tips: ["Используйте аппаратные кошельки", "Проверяйте адреса транзакций", "Будьте осторожны с фишингом"]
+        },
+        {
+            title: "КИБЕРОГРАБЛЕНИЕ ВЕКА — ТОПЛЕС",
+            channel: "ТОПЛЕС",
+            views: "8,1 млн просмотров",
+            description: "Киберограбление века — история о том, как хакеры вывели миллиарды и заставили спецслужбы США признать свое бессилие.",
+            youtubeId: "uYpBIrhW114",
+            duration: "28:45",
+            date: "7 лет назад",
+            facts: ["Взлом банковской системы SWIFT", "Украдено более $81 млн", "Хакеры из Северной Кореи"],
+            tips: ["Используйте двухфакторную аутентификацию", "Не переходите по подозрительным ссылкам в письмах", "Регулярно проверяйте выписки по счетам"]
+        },
         {
             title: "Школьник, который украл $230.000.000",
             channel: "Enceo",
             views: "850 тыс. просмотров",
-            description: "История о подростках, которые украли 230 миллионов долларов. На сегодня это уже более $400M. Полный разбор атаки через SIM-своппинг и социальную инженерию.",
+            description: "История о подростках, которые украли 230 миллионов долларов. На сегодня это уже более $400M.",
             youtubeId: "P3AA8m1q64s",
             duration: "18:42",
-            date: "1 год назад"
+            date: "1 год назад",
+            facts: ["SIM-swapping — главное оружие", "Жертвы — криптоинвесторы", "Подростки из США и Канады"],
+            tips: ["Используйте аутентификатор вместо SMS", "Не публикуйте номер телефона публично", "Закройте SIM-карту PIN-кодом у оператора"]
         },
         {
-            title: "Взлом биржи Bybit на $500 млн — полный разбор",
-            channel: "Blockchain Security Lab",
-            views: "876K просмотров",
-            description: "Мультисиг-атака, социальная инженерия и вывод через THORChain. Детальный forensic анализ.",
-            youtubeId: "oXG1JmO96Vw",
-            duration: "22:15",
-            date: "2 месяца назад"
+            title: "КАК ШКОЛЬНИКИ ВЗЛОМАЛИ ЦРУ",
+            channel: "Станислав Мамай",
+            views: "1,7 млн просмотров",
+            description: "Реальная история хакерской группировки, проникновение в архивы, работа спецслужб.",
+            youtubeId: "PJyGvMop7Mo",
+            duration: "41:22",
+            date: "1 год назад",
+            hasEpisodes: true,
+            facts: ["Взломаны базы ЦРУ и ФБР", "Хакерам было 16-18 лет", "Украдены секретные документы"],
+            tips: ["Ставьте сложные пароли (менеджеры паролей)", "Включайте VPN в публичных сетях", "Не используйте одинаковые пароли на работе и дома"]
         },
         {
-            title: "Кража 4000 BTC из моста Ronin: как это произошло",
-            channel: "ZeroDays Decoded",
-            views: "2.4M просмотров",
-            description: "Техническая реконструкция эксплойта, который потряс весь Web3. Уязвимость валидаторов и отмыв через Tornado Cash.",
-            youtubeId: "4KtRcNq2T2E",
-            duration: "31:07",
-            date: "6 месяцев назад"
+            title: "КАК ШКОЛЬНИК УКРАЛ 17 МИЛЛИОНОВ ДОЛЛАРОВ ЗА 1 ДЕНЬ",
+            channel: "Станислав Мамай",
+            views: "224 тыс. просмотров",
+            description: "КАК ШКОЛЬНИК УКРАЛ 17 МИЛЛИОНОВ ДОЛЛАРОВ ЗА 24 ЧАСА. Методы социнженерии.",
+            youtubeId: "yU5ivYFzgSk",
+            duration: "24:18",
+            date: "6 месяцев назад",
+            hasEpisodes: true,
+            facts: ["Атака через техподдержку биржи", "Поддельные документы", "Обнал через криптоматы"],
+            tips: ["Никому не сообщайте код из SMS", "Проверяйте звонящих через официальный канал", "Не переходите по ссылкам из сообщений 'службы поддержки'"]
         },
         {
-            title: "Самые крупные крипто-взломы 2025-2026 (от 1000 BTC до 4000 BTC)",
-            channel: "Cyril Explains",
-            views: "1.2M просмотров",
-            description: "Хроника взломов: Mt.Gox, Ronin, Euler Finance, атака на кроссчейн-мост и вывод средств.",
-            youtubeId: "H3TpJmR9_28",
-            duration: "42:11",
-            date: "3 недели назад"
+            title: "Как Два Школьника Украли 69.000 Биткоинов и Исчезли",
+            channel: "Maska",
+            views: "582 тыс. просмотров",
+            description: "История двух подростков, которые похитили 69 000 BTC и бесследно исчезли.",
+            youtubeId: "HcCE_Cpc3hk",
+            duration: "37:45",
+            date: "10 месяцев назад",
+            hasEpisodes: true,
+            facts: ["69 000 BTC (сотни млн $)", "Использовали фишинг", "Исчезли с деньгами"],
+            tips: ["Не храните все средства на бирже", "Используйте холодные кошельки", "Включайте белый список адресов для вывода"]
+        },
+        {
+            title: "САМЫЙ ОПАСНЫЙ хакер России: невероятная история и киберпреступления [РАССЛЕДОВАНИЕ]",
+            channel: "СЕРЫЙ КАРДИНАЛ",
+            views: "713 тыс. просмотров",
+            description: "Самый опасный русский хакер — Максим Якубец. Глава Evil Corp, украл миллиарды.",
+            youtubeId: "CLiCiWCJiv0",
+            duration: "48:12",
+            date: "6 месяцев назад",
+            hasEpisodes: true,
+            facts: ["Evil Corp — $1 млрд+ ущерба", "Вымогатели Dridex", "ФБР назначило награду $5 млн"],
+            tips: ["Регулярно бэкапьте данные", "Не платите выкуп — это финансирует преступность", "Используйте антивирус с защитой от вымогателей"]
+        },
+        {
+            title: "НА ЧТО СПОСОБНО КИБЕРОРУЖИЕ? — ТОПЛЕС",
+            channel: "ТОПЛЕС",
+            views: "5,9 млн просмотров",
+            description: "Кибероружие: Stuxnet, вирусы-убийцы инфраструктуры и реальные кибератаки на атомные объекты.",
+            youtubeId: "pBSGl2uq3_4",
+            duration: "24:10",
+            date: "7 лет назад",
+            facts: ["Stuxnet уничтожил центрифуги Ирана", "Кибероружие может останавливать заводы", "Атаки на электросети — реальность"],
+            tips: ["Держите ПО всегда обновлённым", "Сегментируйте критическую инфраструктуру", "Используйте белые списки приложений"]
+        },
+        {
+            title: "Как Русские Хакеры Украли 3 Миллиарда",
+            channel: "Крот",
+            views: "90 тыс. просмотров",
+            description: "ФСБ против Lurk: история трояна, который вывел из банков более 3 млрд рублей. Технический разбор малвари.",
+            youtubeId: "VBCscVUeWXY",
+            duration: "20:34",
+            date: "6 месяцев назад",
+            facts: ["Троян Lurk — 3 млрд ₽ ущерба", "Аресты в ФСБ и МВД", "Закрытая группировка хакеров"],
+            tips: ["Не скачивайте софт с торрентов", "Используйте антивирус с поведенческим анализом", "Обновляйте браузер и Java"]
         }
     ];
 
-    // Актуальные темы
     const topicsList = [
-        "💎 4000 BTC Heist",
-        "🧑‍💻 Школьник $230M",
-        "🌊 DeFi мост атаки",
-        "🤖 ИИ-фишинг",
-        "🔓 Lazarus Group",
-        "📡 Утечки паролей 2026",
-        "💣 Эксплойты смарт-контрактов",
-        "🎭 Deepfake в киберпреступности"
+        "💎 4000 BTC Heist", "🧑‍💻 Школьник $230M", "🌊 DeFi мост атаки",
+        "🤖 ИИ-фишинг", "🔓 Lazarus Group", "📡 Утечки паролей 2026",
+        "💣 Эксплойты смарт-контрактов", "🎭 Deepfake в киберпреступности"
     ];
 
-    // Функция для получения превью YouTube (maxresdefault + fallback)
     function getYouTubeThumbnail(youtubeId) {
         return `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
     }
 
-    // Рендер новостей
     function renderNews() {
         const container = document.getElementById('newsContainer');
         if (!container) return;
@@ -544,25 +1071,53 @@
                 <div class="news-desc">${escapeHtml(news.description)}</div>
                 <div class="news-footer">
                     <span class="badge">${escapeHtml(news.tag)}</span>
-                    <a href="${escapeHtml(news.url)}" target="_blank" rel="noopener noreferrer" class="read-more">Читать оригинал →</a>
+                    <a href="${escapeHtml(news.url)}" target="_blank" rel="noopener noreferrer" class="read-more">Читать оригинал (${escapeHtml(news.source)}) →</a>
                 </div>
             `;
             container.appendChild(card);
         });
     }
 
-    // Рендер видео (с превью как на YouTube)
-    function renderVideos() {
-        const container = document.getElementById('videosContainer');
+    function renderUnifiedVideos() {
+        const container = document.getElementById('unifiedVideosContainer');
         if (!container) return;
         container.innerHTML = '';
 
-        videosData.forEach(video => {
-            const videoCard = document.createElement('div');
-            videoCard.className = 'video-card';
+        unifiedVideos.forEach(video => {
+            const card = document.createElement('div');
+            card.className = 'video-card';
             const thumbUrl = getYouTubeThumbnail(video.youtubeId);
-            
-            videoCard.innerHTML = `
+
+            let episodesHtml = '';
+            if (video.hasEpisodes) {
+                episodesHtml = `<div class="episodes-chip">📺 Эпизоды: вступление, главы, итоги</div>`;
+            }
+
+            let factsHtml = '';
+            if (video.facts && video.facts.length) {
+                factsHtml = `
+                    <div class="facts-box">
+                        <div class="facts-title">⚠️ ФАКТЫ ОБ АТАКЕ</div>
+                        <ul class="facts-list">
+                            ${video.facts.map(f => `<li>${escapeHtml(f)}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            let tipsHtml = '';
+            if (video.tips && video.tips.length) {
+                tipsHtml = `
+                    <div class="security-box">
+                        <div class="security-title">🛡️ КАК ЗАЩИТИТЬ СЕБЯ</div>
+                        <ul class="security-list">
+                            ${video.tips.map(t => `<li>${escapeHtml(t)}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            card.innerHTML = `
                 <div class="thumbnail-wrapper">
                     <img class="thumbnail-img" src="${thumbUrl}" 
                          onerror="this.onerror=null; this.src='https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg';"
@@ -574,22 +1129,23 @@
                 </div>
                 <div class="video-info">
                     <div class="video-title">${escapeHtml(video.title)}</div>
-                    <div class="video-channel">📺 ${escapeHtml(video.channel)} • ${escapeHtml(video.date || 'недавно')}</div>
+                    <div class="video-channel">📺 ${escapeHtml(video.channel)} • ${escapeHtml(video.date)}</div>
                     <div class="video-stats">👁️ ${escapeHtml(video.views)}</div>
-                    <div class="video-desc">${escapeHtml(video.description.substring(0, 110))}${video.description.length > 110 ? '...' : ''}</div>
+                    <div class="video-desc">${escapeHtml(video.description.substring(0, 130))}${video.description.length > 130 ? '...' : ''}</div>
+                    ${episodesHtml}
+                    ${factsHtml}
+                    ${tipsHtml}
                 </div>
             `;
-            
-            videoCard.addEventListener('click', (e) => {
+            card.addEventListener('click', (e) => {
+                if (e.target.closest('.security-box') || e.target.closest('.facts-box')) return;
                 e.stopPropagation();
                 openVideoModal(video.youtubeId, video.title);
             });
-            
-            container.appendChild(videoCard);
+            container.appendChild(card);
         });
     }
 
-    // Рендер тем
     function renderTopics() {
         const container = document.getElementById('topicsContainer');
         if (!container) return;
@@ -602,7 +1158,6 @@
         });
     }
 
-    // Модальное окно
     function openVideoModal(videoId, title) {
         const modal = document.getElementById('videoModal');
         const iframe = document.getElementById('modalIframe');
@@ -632,10 +1187,9 @@
         });
     }
 
-    // Инициализация
     document.addEventListener('DOMContentLoaded', () => {
-        renderNews();      // сначала новости
-        renderVideos();    // потом видео
+        renderNews();
+        renderUnifiedVideos();
         renderTopics();
 
         const modal = document.getElementById('videoModal');
